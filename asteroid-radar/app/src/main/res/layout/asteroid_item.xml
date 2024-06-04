@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <data>
+        <variable
+            name="AstroidModel"
+            type="com.udacity.asteroidradar.models.Asteroid" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_forall"
+        android:background="@color/app_background">
+
+
+        <TextView
+            android:id="@+id/code_name"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:bindText="@{AstroidModel.codename}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TextView" />
+
+
+        <TextView
+            android:id="@+id/close_approach_date"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textColor="#80FFFFFF"
+            android:textStyle="bold"
+            app:bindText="@{AstroidModel.closeApproachDate}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/code_name"
+            app:layout_constraintTop_toBottomOf="@+id/code_name"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/status_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/potentially_hazardous_status_image_description"
+            app:layout_constraintBottom_toBottomOf="@+id/close_approach_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/code_name"
+            app:statusIcon="@{AstroidModel.potentiallyHazardous}"
+            tools:srcCompat="@drawable/ic_status_normal" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
